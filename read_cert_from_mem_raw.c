@@ -18,7 +18,7 @@
 int main()
 {
 		const unsigned char  cert_data[] = {
-#include "pem_out.txt"
+#include "base64_2_hex.txt"
 		};
 
 		int cert_data_size = sizeof( cert_data);

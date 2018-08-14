@@ -4,7 +4,7 @@
 #include <openssl/x509v3.h>
 #include <openssl/pem.h> //PEM_read_X509, PEM_write_X509
 
-/* 读取如下格式的证书，以16进制格式存储在disk*/
+/* 读取如下base64格式的证书，以16进制格式存储在disk*/
 char *pem_cert_str= "-----BEGIN CERTIFICATE-----\n"\
 					 "MIIMbjCCC1agAwIBAgIQQc2kxlw+Z2U6r6n41uZK1jANBgkqhkiG9w0BAQsFADBE\n"\
 					 "MQswCQYDVQQGEwJVUzEWMBQGA1UEChMNR2VvVHJ1c3QgSW5jLjEdMBsGA1UEAxMU\n"\
@@ -87,7 +87,7 @@ int main()
 				return EXIT_FAILURE;
 		}
 		/******************** parse cert ***********************/
-		fp = fopen("pem_base64.txt", "w");
+		fp = fopen("base64_2_hex.txt", "w");
 		unsigned char *buf = NULL;
 		int len = i2d_X509(certX509, &buf);
 		for(int i = 0; i < len; i++)
