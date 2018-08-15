@@ -90,6 +90,8 @@ int main()
 		fp = fopen("base64_2_hex.txt", "w");
 		unsigned char *buf = NULL;
 		int len = i2d_X509(certX509, &buf);
+
+		//store as HEX format in disk
 		for(int i = 0; i < len; i++)
 		{
 				printf("0x%02X, ", *(buf + i));

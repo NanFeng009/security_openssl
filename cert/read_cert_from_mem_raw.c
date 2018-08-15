@@ -22,9 +22,8 @@ int main()
 		};
 
 		int cert_data_size = sizeof( cert_data);
-		printf("the size of date = %d\n", cert_data_size);
-		char * file_name = "raw_format.pem";
 
+		char * file_name = "raw_format.pem";
 		X509 * px = NULL;
 
 
