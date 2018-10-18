@@ -3,7 +3,11 @@
 #include <openssl/bio.h>
 #include <openssl/x509.h>
 #include <openssl/pem.h>
+#include <openssl/evp.h>
 
+/*
+ * gcc read_key_from_disk_raw.c -lssl -lcrypto -ldl -L/usr/local/lib
+ */
 
 void *load_key(const uint8_t *pem_key, uint32_t len)
 {
@@ -34,9 +38,13 @@ int main()
 };
 		EVP_PKEY *pkey ;
 
-		pkey = (EVP_PKEY *)load_key(pkey_data, pkey_data_size);
+		pkey = (EVP_PKEY *)load_key(pkey_data, sizeof(pkey_data));
 
+#if OPENSSL_VERSION_NUMBER < 0x10100000L
 		RSA_print_fp(stdout, pkey->pkey.rsa, 0);
+#else
+        RSA_print_fp(stdout, EVP_PKEY_get1_RSA(pkey), 0);
+#endif
 		if(pkey)
 		{
 				EVP_PKEY_free(pkey);
