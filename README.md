@@ -20,12 +20,12 @@ If you get the following error it means that you are trying to view a DER encode
 ## View DER encoded Certificate
 > openssl x509 -in certificate.der -inform der -text -noout
 
-# Transform
+*Transform*
 Transforms can take one type of encoded certificate to another. (ie. PEM To DER conversion)
 
-# PEM to DER
+- PEM to DER
 > openssl x509 -in cert.crt -outform der -out cert.der
-# DER to PEM
+- DER to PEM
 > openssl x509 -in cert.crt -inform der -outform pem -out cert.pem
 # View KEY 
 > openssl rsa -in key.pem -text -noout
