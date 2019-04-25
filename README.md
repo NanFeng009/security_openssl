@@ -17,7 +17,7 @@ If you get the following error it means that you are trying to view a DER encode
 ## unable to load certificate
 *12626:error:0906D06C:PEM routines:PEM_read_bio:no start line:pem_lib.c:647:Expecting: TRUSTED CERTIFICATE*
 
-## View DER encoded Certificate
+*View DER encoded Certificate*
 > openssl x509 -in certificate.der -inform der -text -noout
 
 *Transform*
